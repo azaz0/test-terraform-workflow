@@ -1,0 +1,9 @@
+jobs:
+  default-version:
+    - name: Validate Python's version
+        run: python --version
+
+  pylint-test:
+    - name: Test app with pylint
+        run: pylint ../../app.py
+
