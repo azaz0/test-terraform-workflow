@@ -1,9 +1,20 @@
+on:
+  push:
+    branches:
+      - master
 jobs:
   default-version:
-    - name: Validate Python's version
-        run: python --version
+    name: Validate Python's version
+    runs-on: ubuntu-latest
+    steps:
+    - name: validate version
+    - run: python --version
 
   pylint-test:
-    - name: Test app with pylint
-        run: pylint ../../app.py
-
+    name: Test app with pylint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v3
+      - name: pylint run
+      - run: pylint ../../app.py
